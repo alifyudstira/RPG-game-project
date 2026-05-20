@@ -267,7 +267,7 @@ position = Vector2(103, -2.000001)
 position = Vector2(35, 41)
 
 [node name="Area2D" parent="Mymap" unique_id=863095479 instance=ExtResource("6_sc4t8")]
-position = Vector2(-61, 0)
+position = Vector2(-57, -35)
 
 [node name="CharacterBody2D" parent="." unique_id=268207826 instance=ExtResource("1_6xmxd")]
 speed = 100
