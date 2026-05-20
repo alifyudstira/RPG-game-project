@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://drp3riocum748"]
+
+[ext_resource type="Script" uid="uid://bytfpx40a0y8t" path="res://menu_ui/menu.gd" id="1_bq2ph"]
+[ext_resource type="PackedScene" uid="uid://dt5lc46h1eiwo" path="res://menu_ui/inventory/inventory.tscn" id="2_muyj5"]
+
+[node name="menu" type="Control" unique_id=1614944901]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bq2ph")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=898528926]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_left = 15.0
+offset_right = 165.0
+offset_bottom = 646.0
+
+[node name="VMenu" type="VBoxContainer" parent="Panel" unique_id=1278240841]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="inventory" type="Button" parent="Panel/VMenu" unique_id=2140026178]
+layout_mode = 2
+text = "Inventory"
+
+[node name="gears" type="Button" parent="Panel/VMenu" unique_id=1031143357]
+layout_mode = 2
+text = "Gears"
+
+[node name="settings" type="Button" parent="Panel/VMenu" unique_id=238881156]
+layout_mode = 2
+text = "Settings"
+
+[node name="Control" type="Control" parent="." unique_id=1844521791]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="inventory" parent="Control" unique_id=318503237 instance=ExtResource("2_muyj5")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 130.0
+offset_top = -20.0
+offset_right = 1129.0
+offset_bottom = 626.0

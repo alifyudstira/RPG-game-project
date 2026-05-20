@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bhm1k005t5ffr"]
+
+[ext_resource type="Script" uid="uid://bf1qmcdb0n5xo" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://l7oo0ubydrri" path="res://mystic_woods_free_2.2/sprites/characters/player.png" id="2_rkbax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(11.848214, 23.696428)
+
+[node name="player" type="CharacterBody2D" unique_id=268207826]
+scale = Vector2(0.5064054, 0.5064054)
+script = ExtResource("1_rkbax")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914415826]
+texture = ExtResource("2_rkbax")
+hframes = 6
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1518727035]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_rkbax")

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dt5lc46h1eiwo"]
+
+[ext_resource type="PackedScene" uid="uid://bq01euw3q88dx" path="res://menu_ui/inventory/inv_row.tscn" id="1_c20ja"]
+[ext_resource type="Script" uid="uid://bfim5xsdpfjrx" path="res://menu_ui/inventory/inventory.gd" id="1_vfcrw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfcrw"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nbrh"]
+font_size = 15
+
+[node name="inventory" type="Control" unique_id=318503237]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vfcrw")
+inv_row = ExtResource("1_c20ja")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=736537220]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=1524366383]
+clip_contents = false
+custom_minimum_size = Vector2(812, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="itemList" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=1382323342]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 37
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer" unique_id=1897414516]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel" unique_id=2129337030]
+layout_mode = 2
+
+[node name="itemName" type="Label" parent="HBoxContainer/Panel/VBoxContainer" unique_id=950581561]
+layout_mode = 2
+text = "Item name"
+label_settings = SubResource("LabelSettings_vfcrw")
+uppercase = true
+
+[node name="itemDesc" type="Label" parent="HBoxContainer/Panel/VBoxContainer" unique_id=356968540]
+layout_mode = 2
+text = "Item name"
+label_settings = SubResource("LabelSettings_3nbrh")

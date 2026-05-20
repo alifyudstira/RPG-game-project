@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd8nw24je6ysm"]
+
+[ext_resource type="Script" uid="uid://bwcin16a8tke5" path="res://map_enemy.gd" id="1_yspn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvnpo"]
+radius = 39.051247
+
+[node name="MapEnemy" type="Area2D" unique_id=293070712]
+script = ExtResource("1_yspn4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=562796447]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1130360392]
+shape = SubResource("CircleShape2D_wvnpo")

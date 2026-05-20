@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://cvh61o4c5xrfg"]
+
+[ext_resource type="Script" uid="uid://bxa64acaggaah" path="res://arena/arena.gd" id="1_dkqtx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkqtx"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 0.50980395)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u13ga"]
+bg_color = Color(0.60784316, 0.60784316, 0.60784316, 0.50980395)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dotur"]
+bg_color = Color(0.7579609, 0.5654869, 1.92523e-07, 0.6666667)
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_dkqtx"]
+font_size = 30
+
+[node name="Arena" type="Node2D" unique_id=1997681083]
+script = ExtResource("1_dkqtx")
+
+[node name="qteTimer" type="Timer" parent="." unique_id=1717907774]
+wait_time = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927017953]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1198529103]
+self_modulate = Color(1, 0.44705883, 0.4627451, 0.39607844)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -583.0
+offset_top = -201.0
+offset_right = 583.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel" unique_id=1246234042]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -41.75
+offset_right = 212.5
+offset_bottom = 41.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=1074885223]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=2042400632]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=1822733790]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+
+[node name="Button4" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=1951902716]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=1170637979]
+offset_left = -5.0
+offset_top = 231.0
+offset_right = 1155.0
+offset_bottom = 344.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dkqtx")
+
+[node name="qteBar" type="ProgressBar" parent="CanvasLayer/Panel2" unique_id=1957890866]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -580.0
+offset_top = -12.0
+offset_right = 580.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_u13ga")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dotur")
+max_value = 5.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel2" unique_id=2057524520]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -49.000015
+offset_right = 50.0
+offset_bottom = 49.000015
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel2/HBoxContainer" unique_id=234723801]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Panel2/HBoxContainer" unique_id=178496133]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Panel2/HBoxContainer" unique_id=101887082]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Panel2/HBoxContainer" unique_id=1374123776]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Panel2/HBoxContainer" unique_id=881613081]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Panel2/HBoxContainer" unique_id=271679514]
+layout_mode = 2
+expand_mode = 2
+
+[node name="enemyLoc" type="Node2D" parent="." unique_id=1880988164]
+position = Vector2(576, 251)
+
+[node name="enemyTexture" type="Sprite2D" parent="enemyLoc" unique_id=1163970056]
+
+[node name="ProgressBar" type="ProgressBar" parent="enemyLoc" unique_id=1808552524]
+offset_left = -226.0
+offset_top = -220.0
+offset_right = 230.0
+offset_bottom = -185.0
+show_percentage = false
+
+[node name="enemyName" type="Label" parent="enemyLoc" unique_id=1745652500]
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = -227.0
+offset_right = 41.0
+offset_bottom = -185.0
+grow_horizontal = 2
+text = "name"
+label_settings = SubResource("LabelSettings_dkqtx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="qteTimer" to="." method="_on_qte_timer_timeout"]
