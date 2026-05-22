@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 			itemDesc.text = InvManager.inv[key]["resource"].desc
 			itemLabel.text = key
 	
+	#ini untuk test
 	if Input.is_action_just_pressed("ui_accept"):
 		InvManager.add_to_inv(load("res://item/tres/apple.tres"), 3)
 		populate_list()
