@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bsehhcugedtse" path="res://icon.svg" id="1_5vhbh"]
 [ext_resource type="Script" uid="uid://ky0rdrlpavum" path="res://store/store_ui_buy.gd" id="1_k085c"]
+[ext_resource type="PackedScene" uid="uid://00kx1o65ohps" path="res://store/item_button.tscn" id="2_x8j44"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k085c"]
 bg_color = Color(0.41361988, 0.25245208, 0.20164523, 0.18039216)
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k085c")
+item_btn = ExtResource("2_x8j44")
 
 [node name="Panel2" type="Panel" parent="." unique_id=1192636189]
 layout_mode = 0

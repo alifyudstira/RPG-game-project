@@ -1,5 +1,4 @@
 # Dokumentasi Game RPG 2D
-> Godot 4 — Last updated: 2025
 
 ---
 
@@ -15,9 +14,9 @@ Menyimpan data sesi battle.
 **Format `current_enemy`:**
 ```gdscript
 {
-    "name": String,
-    "sprite": Texture2D,
-    "hp": int
+	"name": String,
+	"sprite": Texture2D,
+	"hp": int
 }
 ```
 
@@ -35,8 +34,8 @@ Mengelola inventory player.
 # Key: item_name (String) dari ItemData.name
 # Value:
 {
-    "resource": ItemData,
-    "quantity": int
+	"resource": ItemData,
+	"quantity": int
 }
 ```
 
@@ -61,8 +60,8 @@ Menyimpan data barang toko.
 # Key: ItemData resource
 # Value: harga (int)
 {
-    load("res://item/tres/apple.tres"): 10,
-    load("res://item/tres/stone.tres"): 5,
+	load("res://item/tres/apple.tres"): 10,
+	load("res://item/tres/stone.tres"): 5,
 }
 ```
 
@@ -180,7 +179,7 @@ itemDesc.text = InvManager.inv[key]["resource"].desc
 **Refresh list setelah update:**
 ```gdscript
 for child in $ScrollContainer/VBoxContainer.get_children():
-    child.free()  # bukan queue_free, agar langsung
+	child.free()  # bukan queue_free, agar langsung
 populate_list()
 ```
 
@@ -193,9 +192,9 @@ Scene template untuk satu baris inventory.
 ```
 inv_row
 └── Button
-    └── HBoxContainer
-        ├── name (Label)
-        └── quant (Label)
+	└── HBoxContainer
+		├── name (Label)
+		└── quant (Label)
 ```
 
 ---
@@ -217,5 +216,5 @@ res://
 │   ├── inventory.gd
 │   └── inv_row.tscn
 └── world/
-    └── world.tscn
+	└── world.tscn
 ```
