@@ -1,6 +1,6 @@
 extends Node
 
-var testStore:Dictionary = {
-	load("res://item/tres/apple.tres"): 10,
-	load("res://item/tres/stone.tres"): 5,
-}
+var testStore:Array = [
+	load("res://item/tres/apple.tres"),
+	load("res://item/tres/stone.tres"),
+]

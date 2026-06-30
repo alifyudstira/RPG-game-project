@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="itemResource" format=3 uid="uid://4ob0614208xn"]
+[gd_resource type="Resource" script_class="itemData" format=3 uid="uid://4ob0614208xn"]
 
 [ext_resource type="Script" uid="uid://dyyppqxg40p2n" path="res://item/item_resource.gd" id="1_i80tk"]
 [ext_resource type="Texture2D" uid="uid://ds4i3mogx6bpe" path="res://item/icons/apple_test.png" id="2_ehlpe"]
@@ -7,5 +7,7 @@
 script = ExtResource("1_i80tk")
 texture = ExtResource("2_ehlpe")
 name = "apple test"
+sellPrice = 2
+buyPrice = 5
 desc = "this is for testing purpose"
 metadata/_custom_type_script = "uid://dyyppqxg40p2n"

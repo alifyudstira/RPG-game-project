@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dad7r0muujykm"]
+
+[ext_resource type="Script" uid="uid://ky0rdrlpavum" path="res://store/store_ui.gd" id="1_3g1lc"]
+[ext_resource type="PackedScene" uid="uid://00kx1o65ohps" path="res://store/item_button.tscn" id="2_sj0rd"]
+[ext_resource type="Texture2D" uid="uid://bsehhcugedtse" path="res://icon.svg" id="3_5emuh"]
+
+[node name="Store_ui" type="Control" unique_id=1623636173]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 9.0
+offset_right = 1.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3g1lc")
+item_btn = ExtResource("2_sj0rd")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1924602194]
+position = Vector2(591, 457)
+scale = Vector2(1.3906242, 2.3476558)
+texture = ExtResource("3_5emuh")
+
+[node name="leftBar" type="PanelContainer" parent="." unique_id=1419605877]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 112.0
+offset_top = -169.0
+offset_right = 349.0
+offset_bottom = 274.0
+grow_vertical = 2
+
+[node name="itemBar" type="ScrollContainer" parent="leftBar" unique_id=1114820708]
+layout_mode = 2
+
+[node name="itemList" type="VBoxContainer" parent="leftBar/itemBar" unique_id=1440413565]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="options" type="ScrollContainer" parent="leftBar" unique_id=1279578037]
+layout_mode = 2
+
+[node name="optionlList" type="VBoxContainer" parent="leftBar/options" unique_id=401278059]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 7
+
+[node name="buy" type="Button" parent="leftBar/options/optionlList" unique_id=420775401]
+layout_mode = 2
+text = "Buy"
+
+[node name="sell" type="Button" parent="leftBar/options/optionlList" unique_id=1622315477]
+layout_mode = 2
+text = "Sell"
+
+[node name="talk" type="Button" parent="leftBar/options/optionlList" unique_id=1868798750]
+layout_mode = 2
+text = "Talk"
+
+[node name="descPanel" type="PanelContainer" parent="." unique_id=1955181437]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -171.0
+offset_right = -71.0
+offset_bottom = 272.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="descPanel" unique_id=2050539735]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="descPanel/VBoxContainer" unique_id=1179331506]
+layout_mode = 2
+
+[node name="name" type="Label" parent="descPanel/VBoxContainer/Control" unique_id=1139670150]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 84.0
+offset_bottom = 44.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 29
+text = "Name"
+
+[node name="price" type="Label" parent="descPanel/VBoxContainer/Control" unique_id=1647322189]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 58.0
+offset_bottom = 82.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "price"
+
+[node name="desc" type="Label" parent="descPanel/VBoxContainer/Control" unique_id=1060249553]
+layout_mode = 0
+offset_top = 86.0
+offset_right = 47.0
+offset_bottom = 109.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Name"
+
+[node name="dialogue" type="Label" parent="descPanel/VBoxContainer" unique_id=1022264359]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "dialogue"
+
+[connection signal="pressed" from="leftBar/options/optionlList/buy" to="." method="_on_buy_pressed"]

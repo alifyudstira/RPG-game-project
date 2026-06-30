@@ -34,8 +34,8 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=1524366383]
-clip_contents = false
 custom_minimum_size = Vector2(812, 0)
+clip_contents = false
 layout_mode = 2
 follow_focus = true
 
