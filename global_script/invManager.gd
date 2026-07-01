@@ -4,7 +4,7 @@ extends Node
 var inv:Dictionary = {}
 
 func _ready() -> void:
-	pass
+	add_to_inv(load("res://item/tres/apple.tres"), 3)
 
 func _process(delta: float) -> void:
 	pass

@@ -24,9 +24,7 @@ func _ready() -> void:
 	
 	itemInfo.visible = false
 	
-	dialoguePanel.text = "Hello Stranger, what a nice day to take a walk. May you interested to buy or sell something"
-	
-	populate_list()
+	dialoguePanel.text = "Hello Stranger, what a nice day to take a walk. May you interested to buy or sell something?"
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("back"):
@@ -36,7 +34,6 @@ func _process(delta: float) -> void:
 
 func focus_ctrl():
 	var focusedNode = get_viewport().gui_get_focus_owner()
-	
 	
 	if focusedNode:
 		match leftBarState:
@@ -48,27 +45,47 @@ func focus_ctrl():
 						descPanelDesc.text = item.desc
 						descPanelPrice.text = str(item.buyPrice) + "$"
 						break
+			"sell":
+				var key = focusedNode.get_parent().name
+				for entry_key in playerInv:
+					var item = playerInv[entry_key]["resource"]
+					if item.name == key:
+						descPanelName.text = item.name
+						descPanelDesc.text = item.desc
+						descPanelPrice.text = str(item.sellPrice) + "$"
+						break
 	else:
 		if  Input.is_action_just_pressed("ui_down"):
 			match leftBarState:
 				"buy":
 					itemList.get_child(0).find_child("itemButton").grab_focus()
 				"sell":
-					pass
+					itemList.get_child(0).find_child("itemButton").grab_focus()
 				"options":
 					optionList.get_child(0).grab_focus()
 
-func populate_list():
+func populate_list(mode:String):
 	for child in itemList.get_children():
 		child.free()
 	
-	for item in storeItemDb:
-		print(item)
-		var row = item_btn.instantiate()
-		row.name = item.name
-		row.find_child("name").text = item.name
-		row.find_child("price").text = str(item.buyPrice)
-		itemList.add_child(row)
+	match mode:
+		"buy":
+			for item in storeItemDb:
+				print(item)
+				var row = item_btn.instantiate()
+				row.name = item.name
+				row.find_child("name").text = item.name
+				row.find_child("price").text = str(item.buyPrice)
+				itemList.add_child(row)
+		"sell":
+			for key in playerInv:
+				var item = playerInv[key]["resource"]
+				var quantity = playerInv[key]["quantity"]
+				var row = item_btn.instantiate()
+				row.name = item.name
+				row.find_child("name").text = "%s x%d" % [item.name, quantity]
+				row.find_child("price").text = str(item.sellPrice)
+				itemList.add_child(row)
 	
 	leftBarChildren = $leftBar.get_children()
 
@@ -84,6 +101,7 @@ func left_bar_state_ctrl(new_state:String):
 			talkBar.visible = false
 			itemInfo.visible = true
 			dialoguePanel.visible = false
+			populate_list("buy")
 		"sell":
 			leftBarState = "sell"
 			
@@ -92,6 +110,7 @@ func left_bar_state_ctrl(new_state:String):
 			talkBar.visible = false
 			itemInfo.visible = true
 			dialoguePanel.visible = false
+			populate_list("sell")
 		"options":
 			leftBarState = "options"
 			

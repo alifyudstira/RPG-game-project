@@ -49,11 +49,7 @@ add_to_inv(item: ItemData, quantity: int)
 
 ### StoreItems
 Menyimpan data barang toko.
-
-| Variable | Tipe | Deskripsi |
-|---|---|---|
-| `storeName` | `String` | Nama toko |
-| `testStore` | `Dictionary` | Barang dan harga |
+Disimpan dalam bentuk array yang menyimpan "load(lokasi_resource)"
 
 **Format `testStore`:**
 ```gdscript
