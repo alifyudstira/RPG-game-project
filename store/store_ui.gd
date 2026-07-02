@@ -4,6 +4,7 @@ extends Control
 
 var storeItemDb = StoreItems.testStore
 var playerInv = InvManager.inv
+var playerStats = GameManager.player_stats
 var leftBarState:String = "options"
 var leftBarChildren:Array
 
@@ -18,6 +19,7 @@ var leftBarChildren:Array
 @onready var descPanelDesc = $descPanel/VBoxContainer/itemInfo/desc
 @onready var descPanelPrice = $descPanel/VBoxContainer/itemInfo/price
 @onready var dialoguePanel = $descPanel/VBoxContainer/dialogue
+@onready var playerMoneyUi = $money/playerMoney
 
 func _ready() -> void:
 	left_bar_state_ctrl("options")
@@ -31,6 +33,10 @@ func _process(delta: float) -> void:
 		left_bar_state_ctrl("options")
 	
 	focus_ctrl()
+	money_update()
+
+func money_update():
+	playerMoneyUi.text = "$ " + str(playerStats["money"])
 
 func focus_ctrl():
 	var focusedNode = get_viewport().gui_get_focus_owner()
@@ -63,6 +69,8 @@ func focus_ctrl():
 					itemList.get_child(0).find_child("itemButton").grab_focus()
 				"options":
 					optionList.get_child(0).grab_focus()
+				"talk":
+					talkList.get_child(0).grab_focus()
 
 func populate_list(mode:String):
 	for child in itemList.get_children():
