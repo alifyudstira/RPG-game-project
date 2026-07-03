@@ -8,17 +8,17 @@ var playerStats = GameManager.player_stats
 var leftBarState:String = "options"
 var leftBarChildren:Array
 
-@onready var itemList = $leftBar/itemBar/itemList
-@onready var itemBar = $leftBar/itemBar
-@onready var options = $leftBar/options
-@onready var optionList = $leftBar/options/optionlList
-@onready var talkBar = $leftBar/talkBar
-@onready var talkList = $leftBar/talkBar/talkList
-@onready var itemInfo = $descPanel/VBoxContainer/itemInfo
-@onready var descPanelName = $descPanel/VBoxContainer/itemInfo/name
-@onready var descPanelDesc = $descPanel/VBoxContainer/itemInfo/desc
-@onready var descPanelPrice = $descPanel/VBoxContainer/itemInfo/price
-@onready var dialoguePanel = $descPanel/VBoxContainer/dialogue
+@onready var itemList = $leftBar/MarginContainer/itemBar/itemList
+@onready var itemBar = $leftBar/MarginContainer/itemBar
+@onready var options = $leftBar/MarginContainer/options
+@onready var optionList = $leftBar/MarginContainer/options/optionlList
+@onready var talkBar = $leftBar/MarginContainer/talkBar
+@onready var talkList = $leftBar/MarginContainer/talkBar/talkList
+@onready var itemInfo = $descPanel/MarginContainer/VBoxContainer/itemInfo
+@onready var descPanelName = $descPanel/MarginContainer/VBoxContainer/itemInfo/name
+@onready var descPanelDesc = $descPanel/MarginContainer/VBoxContainer/itemInfo/desc
+@onready var descPanelPrice = $descPanel/MarginContainer/VBoxContainer/itemInfo/price
+@onready var dialoguePanel = $descPanel/MarginContainer/VBoxContainer/dialogue
 @onready var playerMoneyUi = $money/playerMoney
 
 func _ready() -> void:

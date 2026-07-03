@@ -34,54 +34,64 @@ offset_right = 349.0
 offset_bottom = 236.0
 grow_vertical = 2
 
-[node name="options" type="ScrollContainer" parent="leftBar" unique_id=1279578037]
+[node name="MarginContainer" type="MarginContainer" parent="leftBar" unique_id=1792656928]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="options" type="ScrollContainer" parent="leftBar/MarginContainer" unique_id=1279578037]
+clip_contents = false
 layout_mode = 2
 
-[node name="optionlList" type="VBoxContainer" parent="leftBar/options" unique_id=401278059]
+[node name="optionlList" type="VBoxContainer" parent="leftBar/MarginContainer/options" unique_id=401278059]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 7
 
-[node name="buy" type="Button" parent="leftBar/options/optionlList" unique_id=420775401]
+[node name="buy" type="Button" parent="leftBar/MarginContainer/options/optionlList" unique_id=420775401]
 layout_mode = 2
 text = "Buy"
 
-[node name="sell" type="Button" parent="leftBar/options/optionlList" unique_id=1622315477]
+[node name="sell" type="Button" parent="leftBar/MarginContainer/options/optionlList" unique_id=1622315477]
 layout_mode = 2
 text = "Sell"
 
-[node name="talk" type="Button" parent="leftBar/options/optionlList" unique_id=1868798750]
+[node name="talk" type="Button" parent="leftBar/MarginContainer/options/optionlList" unique_id=1868798750]
 layout_mode = 2
 text = "Talk"
 
-[node name="itemBar" type="ScrollContainer" parent="leftBar" unique_id=1114820708]
+[node name="itemBar" type="ScrollContainer" parent="leftBar/MarginContainer" unique_id=1114820708]
+clip_contents = false
 layout_mode = 2
 
-[node name="itemList" type="VBoxContainer" parent="leftBar/itemBar" unique_id=1440413565]
+[node name="itemList" type="VBoxContainer" parent="leftBar/MarginContainer/itemBar" unique_id=1440413565]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="talkBar" type="ScrollContainer" parent="leftBar" unique_id=1555186942]
+[node name="talkBar" type="ScrollContainer" parent="leftBar/MarginContainer" unique_id=1555186942]
+clip_contents = false
 layout_mode = 2
 
-[node name="talkList" type="VBoxContainer" parent="leftBar/talkBar" unique_id=1829145519]
+[node name="talkList" type="VBoxContainer" parent="leftBar/MarginContainer/talkBar" unique_id=1829145519]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 7
 
-[node name="who" type="Button" parent="leftBar/talkBar/talkList" unique_id=1569024586]
+[node name="who" type="Button" parent="leftBar/MarginContainer/talkBar/talkList" unique_id=1569024586]
 layout_mode = 2
 text = "Who are you?"
 
-[node name="whatDo" type="Button" parent="leftBar/talkBar/talkList" unique_id=483492060]
+[node name="whatDo" type="Button" parent="leftBar/MarginContainer/talkBar/talkList" unique_id=483492060]
 layout_mode = 2
 text = "What do you do?"
 
-[node name="whatSell" type="Button" parent="leftBar/talkBar/talkList" unique_id=1913755461]
+[node name="whatSell" type="Button" parent="leftBar/MarginContainer/talkBar/talkList" unique_id=1913755461]
 layout_mode = 2
 text = "What do you sell?"
 
-[node name="cat" type="Button" parent="leftBar/talkBar/talkList" unique_id=1692172579]
+[node name="cat" type="Button" parent="leftBar/MarginContainer/talkBar/talkList" unique_id=1692172579]
 layout_mode = 2
 text = "You are, a cat?!"
 
@@ -123,13 +133,20 @@ offset_bottom = 234.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="descPanel" unique_id=2050539735]
+[node name="MarginContainer" type="MarginContainer" parent="descPanel" unique_id=889097903]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="descPanel/MarginContainer" unique_id=2050539735]
 layout_mode = 2
 
-[node name="itemInfo" type="Control" parent="descPanel/VBoxContainer" unique_id=1179331506]
+[node name="itemInfo" type="Control" parent="descPanel/MarginContainer/VBoxContainer" unique_id=1179331506]
 layout_mode = 2
 
-[node name="name" type="Label" parent="descPanel/VBoxContainer/itemInfo" unique_id=1139670150]
+[node name="name" type="Label" parent="descPanel/MarginContainer/VBoxContainer/itemInfo" unique_id=1139670150]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 0
 offset_top = 4.0
@@ -141,7 +158,7 @@ theme_override_font_sizes/font_size = 29
 text = "Name"
 autowrap_mode = 2
 
-[node name="price" type="Label" parent="descPanel/VBoxContainer/itemInfo" unique_id=1647322189]
+[node name="price" type="Label" parent="descPanel/MarginContainer/VBoxContainer/itemInfo" unique_id=1647322189]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 0
 offset_top = 48.0
@@ -153,7 +170,7 @@ theme_override_font_sizes/font_size = 24
 text = "price"
 autowrap_mode = 2
 
-[node name="desc" type="Label" parent="descPanel/VBoxContainer/itemInfo" unique_id=1060249553]
+[node name="desc" type="Label" parent="descPanel/MarginContainer/VBoxContainer/itemInfo" unique_id=1060249553]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 0
 offset_top = 86.0
@@ -164,7 +181,7 @@ size_flags_vertical = 0
 text = "Name"
 autowrap_mode = 2
 
-[node name="dialogue" type="Label" parent="descPanel/VBoxContainer" unique_id=1022264359]
+[node name="dialogue" type="Label" parent="descPanel/MarginContainer/VBoxContainer" unique_id=1022264359]
 custom_minimum_size = Vector2(237, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -172,10 +189,10 @@ size_flags_vertical = 0
 text = "dialogue"
 autowrap_mode = 2
 
-[connection signal="pressed" from="leftBar/options/optionlList/buy" to="." method="_on_buy_pressed"]
-[connection signal="pressed" from="leftBar/options/optionlList/sell" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="leftBar/options/optionlList/talk" to="." method="_on_talk_pressed"]
-[connection signal="pressed" from="leftBar/talkBar/talkList/who" to="." method="_on_buy_pressed"]
-[connection signal="pressed" from="leftBar/talkBar/talkList/whatDo" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="leftBar/talkBar/talkList/whatSell" to="." method="_on_talk_pressed"]
-[connection signal="pressed" from="leftBar/talkBar/talkList/cat" to="." method="_on_talk_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/options/optionlList/buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/options/optionlList/sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/options/optionlList/talk" to="." method="_on_talk_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/talkBar/talkList/who" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/talkBar/talkList/whatDo" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/talkBar/talkList/whatSell" to="." method="_on_talk_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/talkBar/talkList/cat" to="." method="_on_talk_pressed"]
