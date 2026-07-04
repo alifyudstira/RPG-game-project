@@ -46,20 +46,20 @@ theme_override_constants/margin_bottom = 5
 clip_contents = false
 layout_mode = 2
 
-[node name="optionList" type="VBoxContainer" parent="leftBar/MarginContainer/options" unique_id=401278059]
+[node name="optionlList" type="VBoxContainer" parent="leftBar/MarginContainer/options" unique_id=401278059]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 7
 
-[node name="buy" type="Button" parent="leftBar/MarginContainer/options/optionList" unique_id=420775401]
+[node name="buy" type="Button" parent="leftBar/MarginContainer/options/optionlList" unique_id=420775401]
 layout_mode = 2
 text = "Buy"
 
-[node name="sell" type="Button" parent="leftBar/MarginContainer/options/optionList" unique_id=1622315477]
+[node name="sell" type="Button" parent="leftBar/MarginContainer/options/optionlList" unique_id=1622315477]
 layout_mode = 2
 text = "Sell"
 
-[node name="talk" type="Button" parent="leftBar/MarginContainer/options/optionList" unique_id=1868798750]
+[node name="talk" type="Button" parent="leftBar/MarginContainer/options/optionlList" unique_id=1868798750]
 layout_mode = 2
 text = "Talk"
 
@@ -175,7 +175,6 @@ text = "Name"
 autowrap_mode = 2
 
 [node name="dialogBox" parent="." unique_id=1690389936 instance=ExtResource("4_sj0rd")]
-visible = false
 custom_maximum_size = Vector2(400, 200)
 layout_mode = 1
 anchors_preset = 5
@@ -187,6 +186,6 @@ offset_right = 195.0
 offset_bottom = 127.0
 grow_horizontal = 2
 
-[connection signal="pressed" from="leftBar/MarginContainer/options/optionList/buy" to="." method="_on_buy_pressed"]
-[connection signal="pressed" from="leftBar/MarginContainer/options/optionList/sell" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="leftBar/MarginContainer/options/optionList/talk" to="." method="_on_talk_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/options/optionlList/buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/options/optionlList/sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="leftBar/MarginContainer/options/optionlList/talk" to="." method="_on_talk_pressed"]

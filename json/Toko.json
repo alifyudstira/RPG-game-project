@@ -1,0 +1,63 @@
+[
+  [
+	{
+	  "id": "Start",
+	  "character": "",
+	  "text": "",
+	  "options": [
+		"Who",
+		"Whatdo",
+		"Whatsell",
+        "Cat"
+	  ]
+	},
+	{
+	  "id": "Who",
+	  "character": "Clyde",
+	  "text": "Who are you?"
+	},
+	{
+	  "character": "Ryu",
+	  "text": "I am Ryu, a shopkeeper.",
+	  "function": "end_dialog"
+	},
+	{
+	  "id": "Whatdo",
+	  "character": "Clyde",
+	  "text": "What do you do?"
+	},
+	{
+	  "character": "Ryu",
+	  "text": "I am a shopkeeper. I provide trading services, you can buy or sell stuff on me.",
+	  "function": "end_dialog"
+	},
+	{
+	  "id": "Whatsell",
+	  "character": "Clyde",
+	  "text": "What do you sell?"
+	},
+	{
+	  "character": "Ryu",
+	  "text": "I sell most of the things you might need."
+	},
+	{
+	  "character": "Clyde",
+	  "text": "Like what?"
+	},
+	{
+	  "character": "Ryu",
+	  "text": "For example, i have daggers in case there is a pervert on your way. Perverts in this place are targeting everyone, literally everyone.",
+	  "function": "end_dialog"
+	},
+	{
+	  "id": "Cat",
+	  "character": "Clyde",
+	  "text": "You are... a cat?"
+	},
+	{
+	  "character": "Ryu",
+	  "text": "Because I came from nowhere in this universe.",
+	  "function": "end_dialog"
+	}
+  ]
+]
