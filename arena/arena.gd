@@ -6,6 +6,7 @@ extends Node2D
 @onready var arrows = $CanvasLayer/Panel2/HBoxContainer.get_children()
 @onready var qteTimer = $qteTimer
 @onready var qteTimerBar = $CanvasLayer/Panel2/qteBar
+@onready var ui_ctrl = $ui_ctrl
 @onready var arrow_texture = {
 	"ui_up" : preload("res://arena/arrows/ui_up.svg"),
 	"ui_down" : preload("res://arena/arrows/ui_down.svg"),
@@ -13,6 +14,7 @@ extends Node2D
 	"ui_right" : preload("res://arena/arrows/ui_right.svg")
 }
 
+var dmgDealed:int
 var enemyHp:int
 var sequence:Array = []
 var current_index:int = 0
@@ -33,7 +35,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	hpBar.value = enemyHp
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("debug"):
 		generate_sequence()
 	
 	qteTimerBar.value = qteTimer.time_left
@@ -69,18 +71,18 @@ func qte_input():
 	if Input.is_action_just_pressed(sequence[current_index]):
 		arrows[current_index].self_modulate = Color8(255, 255, 255, 150)
 		current_index += 1
-		print("correct")
 		if current_index >= sequence.size():
+			hit_or_miss()
 			finish_qte()
 	else:
 		for action in actions:
 			if Input.is_action_just_pressed(action):
 				arrows[current_index].self_modulate = Color8(255, 30, 30, 150)
 				shake()
-				print("wrong")
 				mistakes += 1
 				current_index += 1
 				if current_index >= sequence.size():
+					hit_or_miss()
 					finish_qte()
 				break
 
@@ -98,7 +100,6 @@ func shake():
 	tween.tween_property(arrows[current_index], "position", original_position, 0.05)
 
 func finish_qte():
-	print("clear")
 	print(hpBar.value)
 	panelArrow.visible = false
 	sequence.clear()
@@ -107,3 +108,66 @@ func finish_qte():
 
 func _on_qte_timer_timeout() -> void:
 	finish_qte()
+
+#==========================================================================
+#execution pipeline
+#==========================================================================
+func hit_or_miss():
+	var value = randi_range(1, 100)
+	
+	if value > GameManager.player_stats["accuracy"]:
+		print("Miss")
+	else:
+		execute_attack()
+
+func execute_attack():
+	var normalDmg = GameManager.player_stats["damage"]
+	var reduction = float(mistakes * 5) / 100.0 * normalDmg
+	dmgDealed = normalDmg - int(round(reduction))
+	dmgDealed = max(dmgDealed, 0)
+	enemyHp -= dmgDealed
+	print("Damage dealed: ", dmgDealed)
+	ui_ctrl.dmg_dealed_ui(dmgDealed)
+
+#==========================================================================
+#sacrifice
+#==========================================================================
+func _on_arm_pressed() -> void:
+	if GameManager.player_body["rArm"]:
+		GameManager.player_body["rArm"] = false
+		$CanvasLayer/Debug/rArm.text = "R. Arm = 0"
+		
+		GameManager.player_stats["effectivity"] -= 10
+		
+	elif GameManager.player_body["lArm"]:
+		GameManager.player_body["lArm"] = false
+		$CanvasLayer/Debug/lArm.text = "L. Arm = 0"
+		
+		GameManager.player_stats["effectivity"] -= 10
+		
+	else:
+		print("No arm left")
+
+func _on_eye_pressed() -> void:
+	if GameManager.player_body["Eye"]:
+		GameManager.player_body["Eye"] = false
+	else:
+		print("Unable to commit attack")
+
+#==========================================================================
+#attack
+#==========================================================================
+func _on_attk_pressed() -> void:
+	generate_sequence()
+
+#==========================================================================
+#item
+#==========================================================================
+func _on_item_pressed() -> void:
+	ui_ctrl.change_ui("item")
+
+#==========================================================================
+#defend
+#==========================================================================
+func _on_defend_pressed() -> void:
+	pass # Replace with function body.

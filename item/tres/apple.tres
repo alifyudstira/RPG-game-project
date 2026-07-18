@@ -10,4 +10,5 @@ name = "apple test"
 sellPrice = 2
 buyPrice = 5
 desc = "this is for testing purpose"
+itemType = "heal"
 metadata/_custom_type_script = "uid://dyyppqxg40p2n"

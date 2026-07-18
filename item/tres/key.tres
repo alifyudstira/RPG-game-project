@@ -8,4 +8,5 @@ script = ExtResource("1_5h5dd")
 texture = ExtResource("2_11kul")
 name = "key test"
 desc = "a key for test"
+itemType = "item"
 metadata/_custom_type_script = "uid://dyyppqxg40p2n"

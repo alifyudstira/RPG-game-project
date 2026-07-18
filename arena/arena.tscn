@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cvh61o4c5xrfg"]
 
 [ext_resource type="Script" uid="uid://bxa64acaggaah" path="res://arena/arena.gd" id="1_dkqtx"]
+[ext_resource type="Script" uid="uid://6saidauat5p6" path="res://arena/arena_ui_ctrl.gd" id="2_u13ga"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dkqtx"]
+font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkqtx"]
 bg_color = Color(0.20392157, 0.20392157, 0.20392157, 0.50980395)
@@ -14,14 +18,45 @@ corner_detail = 1
 bg_color = Color(0.7579609, 0.5654869, 1.92523e-07, 0.6666667)
 corner_detail = 1
 
-[sub_resource type="LabelSettings" id="LabelSettings_dkqtx"]
-font_size = 30
-
 [node name="Arena" type="Node2D" unique_id=1997681083]
 script = ExtResource("1_dkqtx")
 
+[node name="ui_ctrl" type="Control" parent="." unique_id=664050129]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_u13ga")
+
+[node name="enemy_ctrl" type="Node2D" parent="." unique_id=1696207294]
+
 [node name="qteTimer" type="Timer" parent="." unique_id=1717907774]
 wait_time = 3.0
+
+[node name="enemyLoc" type="Node2D" parent="." unique_id=1880988164]
+position = Vector2(576, 251)
+
+[node name="enemyTexture" type="Sprite2D" parent="enemyLoc" unique_id=1163970056]
+
+[node name="ProgressBar" type="ProgressBar" parent="enemyLoc" unique_id=1808552524]
+offset_left = -226.0
+offset_top = -220.0
+offset_right = 230.0
+offset_bottom = -185.0
+show_percentage = false
+
+[node name="enemyName" type="Label" parent="enemyLoc" unique_id=1745652500]
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = -227.0
+offset_right = 41.0
+offset_bottom = -185.0
+grow_horizontal = 2
+text = "name"
+label_settings = SubResource("LabelSettings_dkqtx")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927017953]
 
@@ -38,7 +73,7 @@ offset_right = 583.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel" unique_id=1246234042]
+[node name="main" type="GridContainer" parent="CanvasLayer/Panel" unique_id=1246234042]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,25 +90,73 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=1074885223]
+[node name="attk" type="Button" parent="CanvasLayer/Panel/main" unique_id=1074885223]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../item")
+focus_neighbor_top = NodePath("../defend")
+focus_neighbor_right = NodePath("../item")
+focus_neighbor_bottom = NodePath("../defend")
+text = "Attack"
+
+[node name="item" type="Button" parent="CanvasLayer/Panel/main" unique_id=2042400632]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../attk")
+focus_neighbor_top = NodePath("../sacrifice")
+focus_neighbor_right = NodePath("../attk")
+focus_neighbor_bottom = NodePath("../sacrifice")
+text = "Item"
+
+[node name="defend" type="Button" parent="CanvasLayer/Panel/main" unique_id=1822733790]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../sacrifice")
+focus_neighbor_top = NodePath("../attk")
+focus_neighbor_right = NodePath("../sacrifice")
+focus_neighbor_bottom = NodePath("../attk")
 text = "Test"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=2042400632]
+[node name="sacrifice" type="Button" parent="CanvasLayer/Panel/main" unique_id=1951902716]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Test"
+focus_neighbor_left = NodePath("../defend")
+focus_neighbor_top = NodePath("../item")
+focus_neighbor_right = NodePath("../defend")
+focus_neighbor_bottom = NodePath("../defend")
+text = "Sacrifice"
 
-[node name="Button3" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=1822733790]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Test"
+[node name="sacrifice" type="GridContainer" parent="CanvasLayer/Panel" unique_id=57846406]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -41.75
+offset_right = 212.5
+offset_bottom = 41.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
 
-[node name="Button4" type="Button" parent="CanvasLayer/Panel/GridContainer" unique_id=1951902716]
+[node name="hp" type="Button" parent="CanvasLayer/Panel/sacrifice" unique_id=1850078930]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Test"
+text = "Hp"
+
+[node name="arm" type="Button" parent="CanvasLayer/Panel/sacrifice" unique_id=1956011137]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Arm"
+
+[node name="eye" type="Button" parent="CanvasLayer/Panel/sacrifice" unique_id=865977018]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Eye"
 
 [node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=1170637979]
 offset_left = -5.0
@@ -135,29 +218,132 @@ expand_mode = 2
 layout_mode = 2
 expand_mode = 2
 
-[node name="enemyLoc" type="Node2D" parent="." unique_id=1880988164]
-position = Vector2(576, 251)
+[node name="Debug" type="VBoxContainer" parent="CanvasLayer" unique_id=126065314]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="enemyTexture" type="Sprite2D" parent="enemyLoc" unique_id=1163970056]
+[node name="rArm" type="Label" parent="CanvasLayer/Debug" unique_id=202805363]
+layout_mode = 2
+text = "R. Arm = 1"
 
-[node name="ProgressBar" type="ProgressBar" parent="enemyLoc" unique_id=1808552524]
-offset_left = -226.0
-offset_top = -220.0
-offset_right = 230.0
-offset_bottom = -185.0
-show_percentage = false
+[node name="lArm" type="Label" parent="CanvasLayer/Debug" unique_id=406817704]
+layout_mode = 2
+text = "L. Arm = 1"
 
-[node name="enemyName" type="Label" parent="enemyLoc" unique_id=1745652500]
-anchors_preset = -1
+[node name="Eye" type="Label" parent="CanvasLayer/Debug" unique_id=2047448468]
+layout_mode = 2
+text = "Eye = 1"
+
+[node name="Debug2" type="VBoxContainer" parent="CanvasLayer" unique_id=521447342]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -79.0
+offset_bottom = 104.0
+grow_horizontal = 0
+
+[node name="accuracy" type="Label" parent="CanvasLayer/Debug2" unique_id=1202809317]
+layout_mode = 2
+text = "Accuracy : "
+horizontal_alignment = 2
+
+[node name="effectivity" type="Label" parent="CanvasLayer/Debug2" unique_id=1634512691]
+layout_mode = 2
+text = "Effectivity : "
+horizontal_alignment = 2
+
+[node name="dmgDealed" type="Label" parent="CanvasLayer" unique_id=682112784]
+visible = false
+self_modulate = Color(1, 0.2512494, 0.19311383, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -41.0
-offset_top = -227.0
-offset_right = 41.0
-offset_bottom = -185.0
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -197.0
+offset_right = 20.0
+offset_bottom = -174.0
 grow_horizontal = 2
-text = "name"
-label_settings = SubResource("LabelSettings_dkqtx")
-horizontal_alignment = 1
-vertical_alignment = 1
+grow_vertical = 2
+text = "Dmg Dealed : "
+
+[node name="messages" type="Label" parent="CanvasLayer" unique_id=46297442]
+visible = false
+self_modulate = Color(1, 0.2512494, 0.19311383, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -197.0
+offset_right = 20.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dmg Dealed : "
+
+[node name="itemView" type="Control" parent="CanvasLayer" unique_id=1806674335]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="itemPanel" type="PanelContainer" parent="CanvasLayer/itemView" unique_id=939009342]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 341.0
+offset_top = 144.0
+offset_right = 547.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/itemView/itemPanel" unique_id=1926392610]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="itemList" type="VBoxContainer" parent="CanvasLayer/itemView/itemPanel/MarginContainer" unique_id=1941191198]
+layout_mode = 2
+
+[node name="infoPanel" type="PanelContainer" parent="CanvasLayer/itemView" unique_id=890176941]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 564.0
+offset_top = 144.0
+offset_right = 770.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/itemView/infoPanel" unique_id=1667270952]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="itemInfo" type="Label" parent="CanvasLayer/itemView/infoPanel/MarginContainer" unique_id=440527551]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Info"
 
 [connection signal="timeout" from="qteTimer" to="." method="_on_qte_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Panel/main/attk" to="." method="_on_attk_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/main/item" to="." method="_on_item_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/main/defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/main/sacrifice" to="ui_ctrl" method="_on_sacrifice_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/sacrifice/arm" to="." method="_on_arm_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/sacrifice/eye" to="." method="_on_eye_pressed"]
